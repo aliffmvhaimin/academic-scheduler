@@ -1,0 +1,65 @@
+{
+  "name": "Scenario A - Low Complexity",
+  "description": "4 tasks with generous availability over 3 days",
+  "tasks": [
+    {
+      "id": "task-a1",
+      "task_name": "Intro to Programming Assignment",
+      "credit_weight": 3,
+      "difficulty_score": 4,
+      "deadline": "2026-09-03T20:00:00",
+      "study_duration_hours": 2.0
+    },
+    {
+      "id": "task-a2",
+      "task_name": "Calculus I Tutorial",
+      "credit_weight": 4,
+      "difficulty_score": 7,
+      "deadline": "2026-09-04T02:00:00",
+      "study_duration_hours": 2.5
+    },
+    {
+      "id": "task-a3",
+      "task_name": "Technical Writing Lab Report",
+      "credit_weight": 2,
+      "difficulty_score": 3,
+      "deadline": "2026-09-04T18:00:00",
+      "study_duration_hours": 1.5
+    },
+    {
+      "id": "task-a4",
+      "task_name": "Discrete Mathematics Problem Set",
+      "credit_weight": 3,
+      "difficulty_score": 6,
+      "deadline": "2026-09-05T00:00:00",
+      "study_duration_hours": 2.0
+    }
+  ],
+  "free_slots": [
+    {
+      "date": "2026-09-01",
+      "start": "09:00",
+      "end": "13:00"
+    },
+    {
+      "date": "2026-09-01",
+      "start": "15:00",
+      "end": "19:00"
+    },
+    {
+      "date": "2026-09-02",
+      "start": "09:00",
+      "end": "13:00"
+    },
+    {
+      "date": "2026-09-02",
+      "start": "15:00",
+      "end": "19:00"
+    },
+    {
+      "date": "2026-09-03",
+      "start": "09:00",
+      "end": "13:00"
+    }
+  ]
+}

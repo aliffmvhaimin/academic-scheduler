@@ -1,0 +1,168 @@
+{
+  "name": "Scenario C - High Complexity",
+  "description": "15 tasks under constrained availability with tight deadlines",
+  "tasks": [
+    {
+      "id": "task-c1",
+      "task_name": "Final Prep Component 1",
+      "credit_weight": 1,
+      "difficulty_score": 1,
+      "deadline": "2026-09-02T20:00:00",
+      "study_duration_hours": 1.0
+    },
+    {
+      "id": "task-c2",
+      "task_name": "Final Prep Component 2",
+      "credit_weight": 2,
+      "difficulty_score": 4,
+      "deadline": "2026-09-03T22:00:00",
+      "study_duration_hours": 1.25
+    },
+    {
+      "id": "task-c3",
+      "task_name": "Final Prep Component 3",
+      "credit_weight": 3,
+      "difficulty_score": 7,
+      "deadline": "2026-09-05T00:00:00",
+      "study_duration_hours": 1.5
+    },
+    {
+      "id": "task-c4",
+      "task_name": "Final Prep Component 4",
+      "credit_weight": 4,
+      "difficulty_score": 10,
+      "deadline": "2026-09-06T02:00:00",
+      "study_duration_hours": 1.75
+    },
+    {
+      "id": "task-c5",
+      "task_name": "Final Prep Component 5",
+      "credit_weight": 5,
+      "difficulty_score": 3,
+      "deadline": "2026-09-03T04:00:00",
+      "study_duration_hours": 1.0
+    },
+    {
+      "id": "task-c6",
+      "task_name": "Final Prep Component 6",
+      "credit_weight": 6,
+      "difficulty_score": 6,
+      "deadline": "2026-09-04T06:00:00",
+      "study_duration_hours": 1.25
+    },
+    {
+      "id": "task-c7",
+      "task_name": "Final Prep Component 7",
+      "credit_weight": 1,
+      "difficulty_score": 9,
+      "deadline": "2026-09-04T20:00:00",
+      "study_duration_hours": 1.5
+    },
+    {
+      "id": "task-c8",
+      "task_name": "Final Prep Component 8",
+      "credit_weight": 2,
+      "difficulty_score": 2,
+      "deadline": "2026-09-05T22:00:00",
+      "study_duration_hours": 1.75
+    },
+    {
+      "id": "task-c9",
+      "task_name": "Final Prep Component 9",
+      "credit_weight": 3,
+      "difficulty_score": 5,
+      "deadline": "2026-09-03T00:00:00",
+      "study_duration_hours": 1.0
+    },
+    {
+      "id": "task-c10",
+      "task_name": "Final Prep Component 10",
+      "credit_weight": 4,
+      "difficulty_score": 8,
+      "deadline": "2026-09-04T02:00:00",
+      "study_duration_hours": 1.25
+    },
+    {
+      "id": "task-c11",
+      "task_name": "Final Prep Component 11",
+      "credit_weight": 5,
+      "difficulty_score": 1,
+      "deadline": "2026-09-05T04:00:00",
+      "study_duration_hours": 1.5
+    },
+    {
+      "id": "task-c12",
+      "task_name": "Final Prep Component 12",
+      "credit_weight": 6,
+      "difficulty_score": 4,
+      "deadline": "2026-09-06T06:00:00",
+      "study_duration_hours": 1.75
+    },
+    {
+      "id": "task-c13",
+      "task_name": "Final Prep Component 13",
+      "credit_weight": 1,
+      "difficulty_score": 7,
+      "deadline": "2026-09-02T20:00:00",
+      "study_duration_hours": 1.0
+    },
+    {
+      "id": "task-c14",
+      "task_name": "Final Prep Component 14",
+      "credit_weight": 2,
+      "difficulty_score": 10,
+      "deadline": "2026-09-03T22:00:00",
+      "study_duration_hours": 1.25
+    },
+    {
+      "id": "task-c15",
+      "task_name": "Final Prep Component 15",
+      "credit_weight": 3,
+      "difficulty_score": 3,
+      "deadline": "2026-09-05T00:00:00",
+      "study_duration_hours": 1.5
+    }
+  ],
+  "free_slots": [
+    {
+      "date": "2026-09-01",
+      "start": "08:00",
+      "end": "12:00"
+    },
+    {
+      "date": "2026-09-02",
+      "start": "08:00",
+      "end": "12:00"
+    },
+    {
+      "date": "2026-09-03",
+      "start": "08:00",
+      "end": "12:00"
+    },
+    {
+      "date": "2026-09-04",
+      "start": "08:00",
+      "end": "12:00"
+    },
+    {
+      "date": "2026-09-01",
+      "start": "14:00",
+      "end": "18:00"
+    },
+    {
+      "date": "2026-09-02",
+      "start": "14:00",
+      "end": "18:00"
+    },
+    {
+      "date": "2026-09-03",
+      "start": "14:00",
+      "end": "18:00"
+    },
+    {
+      "date": "2026-09-04",
+      "start": "14:00",
+      "end": "18:00"
+    }
+  ]
+}

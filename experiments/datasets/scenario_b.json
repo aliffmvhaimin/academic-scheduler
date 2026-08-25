@@ -1,0 +1,122 @@
+{
+  "name": "Scenario B - Medium Complexity",
+  "description": "8 tasks with moderate availability and staggered deadlines",
+  "tasks": [
+    {
+      "id": "task-b1",
+      "task_name": "Coursework Module 1",
+      "credit_weight": 2,
+      "difficulty_score": 2,
+      "deadline": "2026-09-02T22:00:00",
+      "study_duration_hours": 1.5
+    },
+    {
+      "id": "task-b2",
+      "task_name": "Coursework Module 2",
+      "credit_weight": 3,
+      "difficulty_score": 4,
+      "deadline": "2026-09-03T00:00:00",
+      "study_duration_hours": 2.0
+    },
+    {
+      "id": "task-b3",
+      "task_name": "Coursework Module 3",
+      "credit_weight": 4,
+      "difficulty_score": 6,
+      "deadline": "2026-09-04T02:00:00",
+      "study_duration_hours": 2.5
+    },
+    {
+      "id": "task-b4",
+      "task_name": "Coursework Module 4",
+      "credit_weight": 5,
+      "difficulty_score": 8,
+      "deadline": "2026-09-04T04:00:00",
+      "study_duration_hours": 1.5
+    },
+    {
+      "id": "task-b5",
+      "task_name": "Coursework Module 5",
+      "credit_weight": 6,
+      "difficulty_score": 10,
+      "deadline": "2026-09-04T22:00:00",
+      "study_duration_hours": 2.0
+    },
+    {
+      "id": "task-b6",
+      "task_name": "Coursework Module 6",
+      "credit_weight": 2,
+      "difficulty_score": 3,
+      "deadline": "2026-09-05T00:00:00",
+      "study_duration_hours": 2.5
+    },
+    {
+      "id": "task-b7",
+      "task_name": "Coursework Module 7",
+      "credit_weight": 3,
+      "difficulty_score": 5,
+      "deadline": "2026-09-06T02:00:00",
+      "study_duration_hours": 1.5
+    },
+    {
+      "id": "task-b8",
+      "task_name": "Coursework Module 8",
+      "credit_weight": 4,
+      "difficulty_score": 7,
+      "deadline": "2026-09-06T04:00:00",
+      "study_duration_hours": 2.0
+    }
+  ],
+  "free_slots": [
+    {
+      "date": "2026-09-01",
+      "start": "10:00",
+      "end": "13:00"
+    },
+    {
+      "date": "2026-09-02",
+      "start": "10:00",
+      "end": "13:00"
+    },
+    {
+      "date": "2026-09-03",
+      "start": "10:00",
+      "end": "13:00"
+    },
+    {
+      "date": "2026-09-04",
+      "start": "10:00",
+      "end": "13:00"
+    },
+    {
+      "date": "2026-09-05",
+      "start": "10:00",
+      "end": "13:00"
+    },
+    {
+      "date": "2026-09-01",
+      "start": "16:00",
+      "end": "19:00"
+    },
+    {
+      "date": "2026-09-02",
+      "start": "16:00",
+      "end": "19:00"
+    },
+    {
+      "date": "2026-09-03",
+      "start": "16:00",
+      "end": "19:00"
+    },
+    {
+      "date": "2026-09-04",
+      "start": "16:00",
+      "end": "19:00"
+    },
+    {
+      "date": "2026-09-05",
+      "start": "16:00",
+      "end": "19:00"
+    }
+  ]
+}

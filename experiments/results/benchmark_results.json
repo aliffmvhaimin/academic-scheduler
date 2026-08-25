@@ -1,0 +1,186 @@
+{
+  "scenario_a.json": {
+    "scenario": "Scenario A - Low Complexity",
+    "greedy": {
+      "feasible": true,
+      "fitness_score": 0.3349,
+      "execution_time_ms": 0,
+      "block_count": 32
+    },
+    "genetic_algorithm": [
+      {
+        "seed": 42,
+        "feasible": true,
+        "fitness_score": 35.2361,
+        "generation_count": 20,
+        "execution_time_ms": 61
+      },
+      {
+        "seed": 101,
+        "feasible": true,
+        "fitness_score": 35.2361,
+        "generation_count": 20,
+        "execution_time_ms": 64
+      },
+      {
+        "seed": 2024,
+        "feasible": true,
+        "fitness_score": 35.2361,
+        "generation_count": 20,
+        "execution_time_ms": 63
+      },
+      {
+        "seed": 777,
+        "feasible": true,
+        "fitness_score": 35.2361,
+        "generation_count": 20,
+        "execution_time_ms": 61
+      },
+      {
+        "seed": 9999,
+        "feasible": true,
+        "fitness_score": 35.2361,
+        "generation_count": 20,
+        "execution_time_ms": 64
+      }
+    ]
+  },
+  "scenario_b.json": {
+    "scenario": "Scenario B - Medium Complexity",
+    "greedy": {
+      "feasible": false,
+      "fitness_score": null,
+      "execution_time_ms": 0,
+      "block_count": 0
+    },
+    "genetic_algorithm": [
+      {
+        "seed": 42,
+        "feasible": true,
+        "fitness_score": 37.057,
+        "generation_count": 50,
+        "execution_time_ms": 264
+      },
+      {
+        "seed": 101,
+        "feasible": true,
+        "fitness_score": 37.0789,
+        "generation_count": 42,
+        "execution_time_ms": 220
+      },
+      {
+        "seed": 2024,
+        "feasible": true,
+        "fitness_score": 37.0711,
+        "generation_count": 50,
+        "execution_time_ms": 291
+      },
+      {
+        "seed": 777,
+        "feasible": true,
+        "fitness_score": 37.0876,
+        "generation_count": 38,
+        "execution_time_ms": 198
+      },
+      {
+        "seed": 9999,
+        "feasible": true,
+        "fitness_score": 37.0721,
+        "generation_count": 50,
+        "execution_time_ms": 252
+      }
+    ]
+  },
+  "scenario_c.json": {
+    "scenario": "Scenario C - High Complexity",
+    "greedy": {
+      "feasible": false,
+      "fitness_score": null,
+      "execution_time_ms": 0,
+      "block_count": 0
+    },
+    "genetic_algorithm": [
+      {
+        "seed": 42,
+        "feasible": true,
+        "fitness_score": 34.1171,
+        "generation_count": 50,
+        "execution_time_ms": 331
+      },
+      {
+        "seed": 101,
+        "feasible": true,
+        "fitness_score": 34.1083,
+        "generation_count": 50,
+        "execution_time_ms": 328
+      },
+      {
+        "seed": 2024,
+        "feasible": true,
+        "fitness_score": 34.0962,
+        "generation_count": 50,
+        "execution_time_ms": 363
+      },
+      {
+        "seed": 777,
+        "feasible": true,
+        "fitness_score": 34.0731,
+        "generation_count": 50,
+        "execution_time_ms": 332
+      },
+      {
+        "seed": 9999,
+        "feasible": true,
+        "fitness_score": 34.07,
+        "generation_count": 50,
+        "execution_time_ms": 402
+      }
+    ]
+  },
+  "scenario_d.json": {
+    "scenario": "Scenario D - Infeasible Horizon",
+    "greedy": {
+      "feasible": false,
+      "fitness_score": null,
+      "execution_time_ms": 0,
+      "block_count": 0
+    },
+    "genetic_algorithm": [
+      {
+        "seed": 42,
+        "feasible": false,
+        "fitness_score": null,
+        "generation_count": 50,
+        "execution_time_ms": 0
+      },
+      {
+        "seed": 101,
+        "feasible": false,
+        "fitness_score": null,
+        "generation_count": 50,
+        "execution_time_ms": 0
+      },
+      {
+        "seed": 2024,
+        "feasible": false,
+        "fitness_score": null,
+        "generation_count": 50,
+        "execution_time_ms": 0
+      },
+      {
+        "seed": 777,
+        "feasible": false,
+        "fitness_score": null,
+        "generation_count": 50,
+        "execution_time_ms": 0
+      },
+      {
+        "seed": 9999,
+        "feasible": false,
+        "fitness_score": null,
+        "generation_count": 50,
+        "execution_time_ms": 0
+      }
+    ]
+  }
+}
