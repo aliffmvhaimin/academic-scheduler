@@ -35,12 +35,12 @@ Acceptance:
 
 # Phase 2 — Constraint Engine
 
-- [ ] availability constraint
-- [ ] deadline constraint
-- [ ] overlap constraint
-- [ ] duration constraint
-- [ ] feasibility checker
-- [ ] infeasibility diagnostics
+- [x] availability constraint
+- [x] deadline constraint
+- [x] overlap constraint
+- [x] duration constraint
+- [x] feasibility checker
+- [x] infeasibility diagnostics
 
 Acceptance:
 - valid schedules accepted

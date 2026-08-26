@@ -3,8 +3,14 @@ from app.core.time_blocks import TimeBlock, generate_time_blocks_from_slots, hou
 from app.core.priority import calculate_task_priority, calculate_urgency_score
 from app.core.constraints import (
     ConstraintViolation,
-    check_preliminary_feasibility,
+    validate_availability_constraint,
+    validate_deadline_constraint,
+    validate_overlap_constraint,
+    validate_duration_constraint,
+    validate_granularity_constraint,
     validate_schedule_constraints,
+    is_schedule_feasible,
+    check_preliminary_feasibility,
 )
 
 __all__ = [
@@ -15,6 +21,12 @@ __all__ = [
     "calculate_task_priority",
     "calculate_urgency_score",
     "ConstraintViolation",
-    "check_preliminary_feasibility",
+    "validate_availability_constraint",
+    "validate_deadline_constraint",
+    "validate_overlap_constraint",
+    "validate_duration_constraint",
+    "validate_granularity_constraint",
     "validate_schedule_constraints",
+    "is_schedule_feasible",
+    "check_preliminary_feasibility",
 ]
