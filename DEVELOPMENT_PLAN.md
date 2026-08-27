@@ -51,11 +51,11 @@ Acceptance:
 
 # Phase 3 — Greedy Baseline
 
-- [ ] priority calculation
-- [ ] task sorting
-- [ ] earliest feasible assignment
-- [ ] output model
-- [ ] tests
+- [x] priority calculation
+- [x] task sorting
+- [x] earliest feasible assignment
+- [x] output model
+- [x] tests
 
 Acceptance:
 - deterministic result for same input

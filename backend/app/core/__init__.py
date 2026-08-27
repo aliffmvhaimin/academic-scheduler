@@ -1,6 +1,6 @@
 """Core domain and constraint logic."""
 from app.core.time_blocks import TimeBlock, generate_time_blocks_from_slots, hours_to_blocks, blocks_to_hours
-from app.core.priority import calculate_task_priority, calculate_urgency_score
+from app.core.priority import calculate_task_priority, calculate_urgency_score, sort_tasks_by_priority
 from app.core.constraints import (
     ConstraintViolation,
     validate_availability_constraint,
@@ -20,6 +20,7 @@ __all__ = [
     "blocks_to_hours",
     "calculate_task_priority",
     "calculate_urgency_score",
+    "sort_tasks_by_priority",
     "ConstraintViolation",
     "validate_availability_constraint",
     "validate_deadline_constraint",
