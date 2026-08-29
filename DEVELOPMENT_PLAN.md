@@ -65,16 +65,16 @@ Acceptance:
 
 # Phase 4 — GA Engine
 
-- [ ] chromosome
-- [ ] population
-- [ ] fitness
-- [ ] selection
-- [ ] crossover
-- [ ] mutation
-- [ ] repair
-- [ ] termination
-- [ ] deterministic seed support
-- [ ] tests
+- [x] chromosome
+- [x] population
+- [x] fitness
+- [x] selection
+- [x] crossover
+- [x] mutation
+- [x] repair
+- [x] termination
+- [x] deterministic seed support
+- [x] tests
 
 Acceptance:
 - GA produces valid schedules for benchmark cases
