@@ -85,14 +85,14 @@ Acceptance:
 
 # Phase 5 — Backend API
 
-- [ ] FastAPI application
-- [ ] health endpoint
-- [ ] POST /schedule
-- [ ] POST /schedule/recalculate
-- [ ] request validation
-- [ ] error handling
-- [ ] API tests
-- [ ] OpenAPI inspection
+- [x] FastAPI application
+- [x] health endpoint
+- [x] POST /schedule
+- [x] POST /schedule/recalculate
+- [x] request validation
+- [x] error handling
+- [x] API tests
+- [x] OpenAPI inspection
 
 Acceptance:
 - API works independently of Flutter

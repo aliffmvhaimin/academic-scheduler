@@ -75,6 +75,17 @@ class SchedulingService:
         completed_set = set(request.completed_task_ids or [])
         active_task_schemas = [t for t in request.tasks if t.id not in completed_set]
 
+        if not active_task_schemas:
+            return ScheduleResponse(
+                success=True,
+                feasible=True,
+                fitness_score=None,
+                generation_count=0,
+                execution_time_ms=0,
+                schedule=[],
+                diagnostics={"info": "All tasks are completed. No active tasks to schedule."}
+            )
+
         tasks = self._convert_tasks(active_task_schemas)
         slots = self._convert_slots(request.free_slots)
 
