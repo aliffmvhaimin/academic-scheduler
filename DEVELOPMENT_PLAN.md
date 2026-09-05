@@ -101,12 +101,12 @@ Acceptance:
 
 # Phase 6 — Flutter Foundation
 
-- [ ] theme
-- [ ] navigation
-- [ ] models
-- [ ] API client
-- [ ] local persistence
-- [ ] loading/error states
+- [x] theme
+- [x] navigation
+- [x] models
+- [x] API client
+- [x] local persistence
+- [x] loading/error states
 
 Acceptance:
 - Flutter application launches
