@@ -115,11 +115,11 @@ Acceptance:
 
 # Phase 7 — Task Management
 
-- [ ] task list
-- [ ] create task
-- [ ] edit task
-- [ ] delete task
-- [ ] validation
+- [x] task list
+- [x] create task
+- [x] edit task
+- [x] delete task
+- [x] validation
 
 Acceptance:
 - complete task CRUD flow works locally
