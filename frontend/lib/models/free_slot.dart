@@ -12,6 +12,29 @@ class FreeSlot {
     required this.end,
   });
 
+  /// Start time as DateTime.
+  DateTime get startDateTime {
+    final parts = start.split(':');
+    final d = DateTime.parse(date);
+    return DateTime(
+        d.year, d.month, d.day, int.parse(parts[0]), int.parse(parts[1]));
+  }
+
+  /// End time as DateTime.
+  DateTime get endDateTime {
+    final parts = end.split(':');
+    final d = DateTime.parse(date);
+    return DateTime(
+        d.year, d.month, d.day, int.parse(parts[0]), int.parse(parts[1]));
+  }
+
+  /// Total duration of the slot in hours.
+  double get durationHours =>
+      endDateTime.difference(startDateTime).inMinutes / 60.0;
+
+  /// Total number of 15-minute blocks in this slot.
+  int get blockCount => (durationHours * 4).round();
+
   Map<String, dynamic> toJson() {
     return {
       'date': date,

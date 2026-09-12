@@ -128,10 +128,10 @@ Acceptance:
 
 # Phase 8 — Availability
 
-- [ ] availability UI
-- [ ] daily time windows
-- [ ] validation
-- [ ] persistence
+- [x] availability UI
+- [x] daily time windows
+- [x] validation
+- [x] persistence
 
 Acceptance:
 - availability can be created and edited
@@ -140,13 +140,13 @@ Acceptance:
 
 # Phase 9 — Schedule UI
 
-- [ ] schedule timeline
-- [ ] task blocks
-- [ ] schedule detail
-- [ ] deadline information
-- [ ] priority contribution
-- [ ] empty state
-- [ ] infeasible state
+- [x] schedule timeline
+- [x] task blocks
+- [x] schedule detail
+- [x] deadline information
+- [x] priority contribution
+- [x] empty state
+- [x] infeasible state
 
 Acceptance:
 - generated API schedules render correctly
@@ -155,14 +155,14 @@ Acceptance:
 
 # Phase 10 — Integration
 
-- [ ] Flutter → API
-- [ ] API → GA
-- [ ] GA → API
-- [ ] API → Flutter
-- [ ] loading state
-- [ ] network failure
-- [ ] infeasible schedule
-- [ ] malformed response
+- [x] Flutter → API
+- [x] API → GA
+- [x] GA → API
+- [x] API → Flutter
+- [x] loading state
+- [x] network failure
+- [x] infeasible schedule
+- [x] malformed response
 
 Acceptance:
 - complete end-to-end scheduling flow works

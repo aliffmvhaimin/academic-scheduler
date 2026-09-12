@@ -18,6 +18,23 @@ void main() {
       expect(restored.start, block.start);
       expect(restored.end, block.end);
     });
+
+    test('duration and formatting getters calculate correctly', () {
+      final block = ScheduleBlock(
+        taskId: 'task-001',
+        start: DateTime(2026, 8, 25, 9, 0),
+        end: DateTime(2026, 8, 25, 9, 45),
+      );
+
+      expect(block.durationMinutes, 45);
+      expect(block.durationHours, 0.75);
+      expect(block.blockCount, 3);
+      expect(block.date, '2026-08-25');
+      expect(block.startTimeFormatted, '09:00');
+      expect(block.endTimeFormatted, '09:45');
+      expect(block.timeRangeFormatted, '09:00 – 09:45');
+      expect(block.formattedDate, 'Tuesday, 25 Aug 2026');
+    });
   });
 
   group('ScheduleResult model', () {
@@ -75,6 +92,9 @@ void main() {
       expect(result.schedule, isEmpty);
       expect(result.diagnostics, isNotNull);
       expect(result.diagnostics!['shortfall_hours'], 8);
+      expect(result.requiredHours, 10.0);
+      expect(result.availableHours, 2.0);
+      expect(result.shortfallHours, 8.0);
     });
   });
 }

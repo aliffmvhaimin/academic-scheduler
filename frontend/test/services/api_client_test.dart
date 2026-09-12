@@ -154,5 +154,63 @@ void main() {
       expect(result.success, true);
       expect(result.schedule, isEmpty);
     });
+
+    test('generateSchedule throws ApiException with isNetworkError on connection error', () async {
+      final mockClient = MockClient((request) async {
+        throw http.ClientException('Connection refused');
+      });
+
+      final api = ApiClient(
+        baseUrl: 'http://localhost:8000/api/v1',
+        client: mockClient,
+      );
+
+      expect(
+        () => api.generateSchedule(tasks: [], freeSlots: []),
+        throwsA(isA<ApiException>()
+            .having((e) => e.isNetworkError, 'isNetworkError', true)
+            .having((e) => e.message, 'message', contains('Network failure'))),
+      );
+    });
+
+    test('generateSchedule throws ApiException with isMalformed on invalid JSON response', () async {
+      final mockClient = MockClient((request) async {
+        return http.Response(
+          '<html><body>502 Bad Gateway</body></html>',
+          200,
+          headers: {'content-type': 'text/html'},
+        );
+      });
+
+      final api = ApiClient(
+        baseUrl: 'http://localhost:8000/api/v1',
+        client: mockClient,
+      );
+
+      expect(
+        () => api.generateSchedule(tasks: [], freeSlots: []),
+        throwsA(isA<ApiException>()
+            .having((e) => e.isMalformed, 'isMalformed', true)
+            .having((e) => e.message, 'message', contains('Malformed response'))),
+      );
+    });
+
+    test('generateSchedule throws ApiException on 500 server error', () async {
+      final mockClient = MockClient((request) async {
+        return http.Response('Internal Server Error', 500);
+      });
+
+      final api = ApiClient(
+        baseUrl: 'http://localhost:8000/api/v1',
+        client: mockClient,
+      );
+
+      expect(
+        () => api.generateSchedule(tasks: [], freeSlots: []),
+        throwsA(isA<ApiException>()
+            .having((e) => e.statusCode, 'statusCode', 500)
+            .having((e) => e.message, 'message', contains('Server error (500)'))),
+      );
+    });
   });
 }
