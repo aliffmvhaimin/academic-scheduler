@@ -171,11 +171,11 @@ Acceptance:
 
 # Phase 11 — Iteration 1 Evaluation
 
-- [ ] benchmark tests
-- [ ] initial user testing
-- [ ] collect feedback
-- [ ] document issues
-- [ ] identify required changes
+- [x] benchmark tests
+- [x] initial user testing
+- [x] collect feedback
+- [x] document issues
+- [x] identify required changes
 
 Acceptance:
 - evaluation results documented

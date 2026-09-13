@@ -1,185 +1,521 @@
 {
   "scenario_a.json": {
     "scenario": "Scenario A - Low Complexity",
+    "description": "4 tasks with generous availability over 3 days",
+    "task_count": 4,
+    "free_slot_count": 5,
     "greedy": {
       "feasible": true,
       "fitness_score": 0.3349,
       "execution_time_ms": 0,
-      "block_count": 32
+      "block_count": 32,
+      "violations": {
+        "conflict_count": 0,
+        "deadline_violation_count": 0,
+        "availability_violation_count": 0,
+        "duration_satisfied_tasks": 4,
+        "total_tasks": 4,
+        "conflict_rate": 0.0,
+        "deadline_violation_rate": 0.0,
+        "duration_satisfaction_rate": 1.0
+      }
     },
-    "genetic_algorithm": [
+    "ga_summary": {
+      "total_runs": 5,
+      "feasible_runs": 5,
+      "feasibility_rate_pct": 100.0,
+      "fitness": {
+        "mean": 35.2361,
+        "std": 0.0,
+        "min": 35.2361,
+        "max": 35.2361
+      },
+      "runtime_ms": {
+        "mean": 60.2,
+        "std": 4.4,
+        "min": 58,
+        "max": 68
+      },
+      "generations": {
+        "mean": 20,
+        "std": 0.0,
+        "min": 20,
+        "max": 20
+      }
+    },
+    "genetic_algorithm_runs": [
       {
         "seed": 42,
         "feasible": true,
         "fitness_score": 35.2361,
         "generation_count": 20,
-        "execution_time_ms": 61
+        "execution_time_ms": 58,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "availability_violation_count": 0,
+          "duration_satisfied_tasks": 4,
+          "total_tasks": 4,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 1.0
+        }
       },
       {
         "seed": 101,
         "feasible": true,
         "fitness_score": 35.2361,
         "generation_count": 20,
-        "execution_time_ms": 64
+        "execution_time_ms": 68,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "availability_violation_count": 0,
+          "duration_satisfied_tasks": 4,
+          "total_tasks": 4,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 1.0
+        }
       },
       {
         "seed": 2024,
         "feasible": true,
         "fitness_score": 35.2361,
         "generation_count": 20,
-        "execution_time_ms": 63
+        "execution_time_ms": 58,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "availability_violation_count": 0,
+          "duration_satisfied_tasks": 4,
+          "total_tasks": 4,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 1.0
+        }
       },
       {
         "seed": 777,
         "feasible": true,
         "fitness_score": 35.2361,
         "generation_count": 20,
-        "execution_time_ms": 61
+        "execution_time_ms": 59,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "availability_violation_count": 0,
+          "duration_satisfied_tasks": 4,
+          "total_tasks": 4,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 1.0
+        }
       },
       {
         "seed": 9999,
         "feasible": true,
         "fitness_score": 35.2361,
         "generation_count": 20,
-        "execution_time_ms": 64
+        "execution_time_ms": 58,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "availability_violation_count": 0,
+          "duration_satisfied_tasks": 4,
+          "total_tasks": 4,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 1.0
+        }
       }
     ]
   },
   "scenario_b.json": {
     "scenario": "Scenario B - Medium Complexity",
+    "description": "8 tasks with moderate availability and staggered deadlines",
+    "task_count": 8,
+    "free_slot_count": 10,
     "greedy": {
       "feasible": false,
       "fitness_score": null,
       "execution_time_ms": 0,
-      "block_count": 0
+      "block_count": 0,
+      "violations": {
+        "conflict_count": 0,
+        "deadline_violation_count": 0,
+        "duration_violation_count": 8,
+        "availability_violation_count": 0,
+        "conflict_rate": 0.0,
+        "deadline_violation_rate": 0.0,
+        "duration_satisfaction_rate": 0.0
+      }
     },
-    "genetic_algorithm": [
+    "ga_summary": {
+      "total_runs": 5,
+      "feasible_runs": 5,
+      "feasibility_rate_pct": 100.0,
+      "fitness": {
+        "mean": 37.0733,
+        "std": 0.0113,
+        "min": 37.057,
+        "max": 37.0876
+      },
+      "runtime_ms": {
+        "mean": 236.8,
+        "std": 31.4,
+        "min": 192,
+        "max": 265
+      },
+      "generations": {
+        "mean": 46,
+        "std": 5.7,
+        "min": 38,
+        "max": 50
+      }
+    },
+    "genetic_algorithm_runs": [
       {
         "seed": 42,
         "feasible": true,
         "fitness_score": 37.057,
         "generation_count": 50,
-        "execution_time_ms": 264
+        "execution_time_ms": 265,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "availability_violation_count": 0,
+          "duration_satisfied_tasks": 8,
+          "total_tasks": 8,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 1.0
+        }
       },
       {
         "seed": 101,
         "feasible": true,
         "fitness_score": 37.0789,
         "generation_count": 42,
-        "execution_time_ms": 220
+        "execution_time_ms": 216,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "availability_violation_count": 0,
+          "duration_satisfied_tasks": 8,
+          "total_tasks": 8,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 1.0
+        }
       },
       {
         "seed": 2024,
         "feasible": true,
         "fitness_score": 37.0711,
         "generation_count": 50,
-        "execution_time_ms": 291
+        "execution_time_ms": 255,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "availability_violation_count": 0,
+          "duration_satisfied_tasks": 8,
+          "total_tasks": 8,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 1.0
+        }
       },
       {
         "seed": 777,
         "feasible": true,
         "fitness_score": 37.0876,
         "generation_count": 38,
-        "execution_time_ms": 198
+        "execution_time_ms": 192,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "availability_violation_count": 0,
+          "duration_satisfied_tasks": 8,
+          "total_tasks": 8,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 1.0
+        }
       },
       {
         "seed": 9999,
         "feasible": true,
         "fitness_score": 37.0721,
         "generation_count": 50,
-        "execution_time_ms": 252
+        "execution_time_ms": 256,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "availability_violation_count": 0,
+          "duration_satisfied_tasks": 8,
+          "total_tasks": 8,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 1.0
+        }
       }
     ]
   },
   "scenario_c.json": {
     "scenario": "Scenario C - High Complexity",
+    "description": "15 tasks under constrained availability with tight deadlines",
+    "task_count": 15,
+    "free_slot_count": 8,
     "greedy": {
       "feasible": false,
       "fitness_score": null,
       "execution_time_ms": 0,
-      "block_count": 0
+      "block_count": 0,
+      "violations": {
+        "conflict_count": 0,
+        "deadline_violation_count": 0,
+        "duration_violation_count": 15,
+        "availability_violation_count": 0,
+        "conflict_rate": 0.0,
+        "deadline_violation_rate": 0.0,
+        "duration_satisfaction_rate": 0.0
+      }
     },
-    "genetic_algorithm": [
+    "ga_summary": {
+      "total_runs": 5,
+      "feasible_runs": 5,
+      "feasibility_rate_pct": 100.0,
+      "fitness": {
+        "mean": 34.0929,
+        "std": 0.0209,
+        "min": 34.07,
+        "max": 34.1171
+      },
+      "runtime_ms": {
+        "mean": 360.8,
+        "std": 7.8,
+        "min": 351,
+        "max": 370
+      },
+      "generations": {
+        "mean": 50,
+        "std": 0.0,
+        "min": 50,
+        "max": 50
+      }
+    },
+    "genetic_algorithm_runs": [
       {
         "seed": 42,
         "feasible": true,
         "fitness_score": 34.1171,
         "generation_count": 50,
-        "execution_time_ms": 331
+        "execution_time_ms": 351,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "availability_violation_count": 0,
+          "duration_satisfied_tasks": 15,
+          "total_tasks": 15,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 1.0
+        }
       },
       {
         "seed": 101,
         "feasible": true,
         "fitness_score": 34.1083,
         "generation_count": 50,
-        "execution_time_ms": 328
+        "execution_time_ms": 370,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "availability_violation_count": 0,
+          "duration_satisfied_tasks": 15,
+          "total_tasks": 15,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 1.0
+        }
       },
       {
         "seed": 2024,
         "feasible": true,
         "fitness_score": 34.0962,
         "generation_count": 50,
-        "execution_time_ms": 363
+        "execution_time_ms": 356,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "availability_violation_count": 0,
+          "duration_satisfied_tasks": 15,
+          "total_tasks": 15,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 1.0
+        }
       },
       {
         "seed": 777,
         "feasible": true,
         "fitness_score": 34.0731,
         "generation_count": 50,
-        "execution_time_ms": 332
+        "execution_time_ms": 367,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "availability_violation_count": 0,
+          "duration_satisfied_tasks": 15,
+          "total_tasks": 15,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 1.0
+        }
       },
       {
         "seed": 9999,
         "feasible": true,
         "fitness_score": 34.07,
         "generation_count": 50,
-        "execution_time_ms": 402
+        "execution_time_ms": 360,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "availability_violation_count": 0,
+          "duration_satisfied_tasks": 15,
+          "total_tasks": 15,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 1.0
+        }
       }
     ]
   },
   "scenario_d.json": {
     "scenario": "Scenario D - Infeasible Horizon",
+    "description": "Total required study time (16 hours) exceeds available slots (6 hours)",
+    "task_count": 1,
+    "free_slot_count": 1,
     "greedy": {
       "feasible": false,
       "fitness_score": null,
       "execution_time_ms": 0,
-      "block_count": 0
+      "block_count": 0,
+      "violations": {
+        "conflict_count": 0,
+        "deadline_violation_count": 0,
+        "duration_violation_count": 1,
+        "availability_violation_count": 0,
+        "conflict_rate": 0.0,
+        "deadline_violation_rate": 0.0,
+        "duration_satisfaction_rate": 0.0
+      }
     },
-    "genetic_algorithm": [
+    "ga_summary": {
+      "total_runs": 5,
+      "feasible_runs": 0,
+      "feasibility_rate_pct": 0.0,
+      "fitness": {
+        "mean": null,
+        "std": 0.0,
+        "min": null,
+        "max": null
+      },
+      "runtime_ms": {
+        "mean": 0,
+        "std": 0.0,
+        "min": 0,
+        "max": 0
+      },
+      "generations": {
+        "mean": 50,
+        "std": 0.0,
+        "min": 50,
+        "max": 50
+      }
+    },
+    "genetic_algorithm_runs": [
       {
         "seed": 42,
         "feasible": false,
         "fitness_score": null,
         "generation_count": 50,
-        "execution_time_ms": 0
+        "execution_time_ms": 0,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "duration_violation_count": 1,
+          "availability_violation_count": 0,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 0.0
+        }
       },
       {
         "seed": 101,
         "feasible": false,
         "fitness_score": null,
         "generation_count": 50,
-        "execution_time_ms": 0
+        "execution_time_ms": 0,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "duration_violation_count": 1,
+          "availability_violation_count": 0,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 0.0
+        }
       },
       {
         "seed": 2024,
         "feasible": false,
         "fitness_score": null,
         "generation_count": 50,
-        "execution_time_ms": 0
+        "execution_time_ms": 0,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "duration_violation_count": 1,
+          "availability_violation_count": 0,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 0.0
+        }
       },
       {
         "seed": 777,
         "feasible": false,
         "fitness_score": null,
         "generation_count": 50,
-        "execution_time_ms": 0
+        "execution_time_ms": 0,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "duration_violation_count": 1,
+          "availability_violation_count": 0,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 0.0
+        }
       },
       {
         "seed": 9999,
         "feasible": false,
         "fitness_score": null,
         "generation_count": 50,
-        "execution_time_ms": 0
+        "execution_time_ms": 0,
+        "violations": {
+          "conflict_count": 0,
+          "deadline_violation_count": 0,
+          "duration_violation_count": 1,
+          "availability_violation_count": 0,
+          "conflict_rate": 0.0,
+          "deadline_violation_rate": 0.0,
+          "duration_satisfaction_rate": 0.0
+        }
       }
     ]
   }
