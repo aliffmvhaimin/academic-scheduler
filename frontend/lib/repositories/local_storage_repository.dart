@@ -91,6 +91,27 @@ class LocalStorageRepository {
     return prefs.getStringList(_completedKey) ?? [];
   }
 
+  // ── Missed Blocks ──
+  static const String _missedBlocksKey = 'missed_schedule_blocks';
+
+  /// Save missed schedule blocks.
+  Future<void> saveMissedBlocks(List<ScheduleBlock> blocks) async {
+    final prefs = await SharedPreferences.getInstance();
+    final jsonList = blocks.map((b) => json.encode(b.toJson())).toList();
+    await prefs.setStringList(_missedBlocksKey, jsonList);
+  }
+
+  /// Load missed schedule blocks.
+  Future<List<ScheduleBlock>> loadMissedBlocks() async {
+    final prefs = await SharedPreferences.getInstance();
+    final jsonList = prefs.getStringList(_missedBlocksKey);
+    if (jsonList == null) return [];
+    return jsonList
+        .map((s) =>
+            ScheduleBlock.fromJson(json.decode(s) as Map<String, dynamic>))
+        .toList();
+  }
+
   // ── Clear All ──
 
   /// Clear all stored data.
@@ -100,5 +121,6 @@ class LocalStorageRepository {
     await prefs.remove(_slotsKey);
     await prefs.remove(_scheduleKey);
     await prefs.remove(_completedKey);
+    await prefs.remove(_missedBlocksKey);
   }
 }

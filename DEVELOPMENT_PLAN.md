@@ -184,12 +184,12 @@ Acceptance:
 
 # Phase 12 — Iteration 2
 
-- [ ] dynamic recalculation
-- [ ] missed study block handling
-- [ ] new task recalculation
-- [ ] GA parameter tuning
-- [ ] UI refinement
-- [ ] performance improvements
+- [x] dynamic recalculation
+- [x] missed study block handling
+- [x] new task recalculation
+- [x] GA parameter tuning
+- [x] UI refinement
+- [x] performance improvements
 
 Acceptance:
 - dynamic recalculation works end-to-end

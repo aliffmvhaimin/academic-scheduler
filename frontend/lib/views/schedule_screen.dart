@@ -104,6 +104,7 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
       session: session,
       task: task,
       priority: priority,
+      viewModel: _viewModel,
     );
   }
 

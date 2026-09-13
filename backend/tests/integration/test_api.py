@@ -336,3 +336,90 @@ def test_internal_server_error_handling():
         assert response.status_code == 500
         data = response.json()
         assert "Simulated engine failure" in data["detail"]
+
+
+def test_post_recalculate_with_missed_blocks():
+    """Test dynamic recalculation excises missed block intervals and reschedules task."""
+    ref_time = datetime(2026, 8, 25, 9, 0)
+    payload = {
+        "tasks": [
+            {
+                "id": "task-m1",
+                "task_name": "Operating Systems",
+                "credit_weight": 4,
+                "difficulty_score": 7,
+                "deadline": (ref_time + timedelta(days=2)).isoformat(),
+                "study_duration_hours": 1.0  # 4 blocks required
+            }
+        ],
+        "free_slots": [
+            {
+                "date": "2026-08-25",
+                "start": "09:00",
+                "end": "11:00"  # 8 blocks available: 09:00-09:15, 09:15-09:30, ...
+            }
+        ],
+        "missed_blocks": [
+            {
+                "task_id": "task-m1",
+                "start": "2026-08-25T09:00:00",
+                "end": "2026-08-25T09:15:00"  # First 15-min block missed
+            }
+        ],
+        "completed_task_ids": []
+    }
+    response = client.post("/api/v1/schedule/recalculate", json=payload)
+    assert response.status_code == 200
+    data = response.json()
+    assert data["success"] is True
+    assert data["feasible"] is True
+    assert len(data["schedule"]) == 4  # 4 blocks scheduled in remaining 7 slots
+
+    # Ensure none of the scheduled blocks occupy the missed window
+    for block in data["schedule"]:
+        assert block["start"] != "2026-08-25T09:00:00"
+
+
+def test_post_recalculate_new_task_added():
+    """Test dynamic recalculation successfully incorporates a newly added task alongside existing tasks."""
+    ref_time = datetime(2026, 8, 25, 14, 0)
+    payload = {
+        "tasks": [
+            {
+                "id": "existing-task",
+                "task_name": "Database Systems",
+                "credit_weight": 3,
+                "difficulty_score": 6,
+                "deadline": (ref_time + timedelta(days=2)).isoformat(),
+                "study_duration_hours": 1.0  # 4 blocks
+            },
+            {
+                "id": "new-added-task",
+                "task_name": "Software Engineering",
+                "credit_weight": 4,
+                "difficulty_score": 8,
+                "deadline": (ref_time + timedelta(days=2)).isoformat(),
+                "study_duration_hours": 0.5  # 2 blocks
+            }
+        ],
+        "free_slots": [
+            {
+                "date": "2026-08-25",
+                "start": "14:00",
+                "end": "17:00"  # 12 blocks available
+            }
+        ],
+        "missed_blocks": [],
+        "completed_task_ids": []
+    }
+    response = client.post("/api/v1/schedule/recalculate", json=payload)
+    assert response.status_code == 200
+    data = response.json()
+    assert data["success"] is True
+    assert data["feasible"] is True
+    assert len(data["schedule"]) == 6  # 4 + 2 blocks
+
+    scheduled_task_ids = {b["task_id"] for b in data["schedule"]}
+    assert "existing-task" in scheduled_task_ids
+    assert "new-added-task" in scheduled_task_ids
+

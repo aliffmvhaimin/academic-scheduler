@@ -450,5 +450,99 @@ void main() {
       final success = await vm.recalculateSchedule();
       expect(success, true);
     });
+
+    test('markSessionMissed saves blocks to storage and triggers recalculation', () async {
+      final task = Task(
+        id: 't-missed-1',
+        taskName: 'Missed Task',
+        creditWeight: 3,
+        difficultyScore: 5,
+        deadline: DateTime(2026, 9, 1),
+        studyDurationHours: 1.0,
+      );
+      await repository.saveTasks([task]);
+      await repository.saveFreeSlots([const FreeSlot(date: '2026-08-25', start: '09:00', end: '11:00')]);
+
+      final missedBlock = ScheduleBlock(
+        taskId: 't-missed-1',
+        start: DateTime(2026, 8, 25, 9, 0),
+        end: DateTime(2026, 8, 25, 9, 15),
+      );
+      final session = ContiguousStudySession(
+        taskId: 't-missed-1',
+        start: DateTime(2026, 8, 25, 9, 0),
+        end: DateTime(2026, 8, 25, 9, 15),
+        blocks: [missedBlock],
+      );
+
+      final mockClient = MockClient((request) async {
+        expect(request.url.path, '/api/v1/schedule/recalculate');
+        final reqBody = json.decode(request.body) as Map<String, dynamic>;
+        expect(reqBody['missed_blocks'], isNotEmpty);
+        expect(reqBody['missed_blocks'][0]['task_id'], 't-missed-1');
+
+        final resData = {
+          'success': true,
+          'feasible': true,
+          'fitness_score': 0.88,
+          'generation_count': 30,
+          'execution_time_ms': 75,
+          'schedule': [],
+          'diagnostics': null,
+        };
+        return http.Response(json.encode(resData), 200, headers: {'content-type': 'application/json'});
+      });
+
+      final api = ApiClient(baseUrl: 'http://localhost:8000/api/v1', client: mockClient);
+      final vm = ScheduleViewModel(repository: repository, apiClient: api);
+
+      final success = await vm.markSessionMissed(session);
+      expect(success, true);
+      expect(vm.missedBlocks.length, 1);
+      expect(vm.missedBlocks.first.taskId, 't-missed-1');
+
+      final storedMissed = await repository.loadMissedBlocks();
+      expect(storedMissed.length, 1);
+    });
+
+    test('markTaskCompleted saves completed ID and triggers recalculation', () async {
+      final task = Task(
+        id: 't-completed-1',
+        taskName: 'Done Task',
+        creditWeight: 2,
+        difficultyScore: 3,
+        deadline: DateTime(2026, 9, 1),
+        studyDurationHours: 1.0,
+      );
+      await repository.saveTasks([task]);
+      await repository.saveFreeSlots([const FreeSlot(date: '2026-08-25', start: '09:00', end: '11:00')]);
+
+      final mockClient = MockClient((request) async {
+        expect(request.url.path, '/api/v1/schedule/recalculate');
+        final reqBody = json.decode(request.body) as Map<String, dynamic>;
+        expect(reqBody['completed_task_ids'], contains('t-completed-1'));
+
+        final resData = {
+          'success': true,
+          'feasible': true,
+          'fitness_score': 0.95,
+          'generation_count': 10,
+          'execution_time_ms': 40,
+          'schedule': [],
+          'diagnostics': null,
+        };
+        return http.Response(json.encode(resData), 200, headers: {'content-type': 'application/json'});
+      });
+
+      final api = ApiClient(baseUrl: 'http://localhost:8000/api/v1', client: mockClient);
+      final vm = ScheduleViewModel(repository: repository, apiClient: api);
+
+      final success = await vm.markTaskCompleted('t-completed-1');
+      expect(success, true);
+      expect(vm.completedTaskIds, contains('t-completed-1'));
+
+      final storedCompleted = await repository.loadCompletedTaskIds();
+      expect(storedCompleted, contains('t-completed-1'));
+    });
   });
 }

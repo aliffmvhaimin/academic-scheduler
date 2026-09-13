@@ -223,6 +223,10 @@ void main() {
       expect(find.text('5 / 6 credits'), findsOneWidget);
       expect(find.text('9 / 10 difficulty'), findsOneWidget);
 
+      // Verify Iteration 2 action buttons are present
+      expect(find.byKey(const Key('mark_missed_button')), findsOneWidget);
+      expect(find.byKey(const Key('mark_completed_button')), findsOneWidget);
+
       // Close dialog
       final closeBtn = find.byKey(const Key('close_detail_button'));
       expect(closeBtn, findsOneWidget);

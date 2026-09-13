@@ -117,5 +117,82 @@ void main() {
       expect(viewModel.taskCount, 0);
       expect(find.byType(BrutalistEmptyState), findsOneWidget);
     });
+
+    testWidgets('search field filters tasks by name in real-time',
+        (WidgetTester tester) async {
+      await viewModel.addTask(Task(
+        id: 't-1',
+        taskName: 'Data Structures',
+        creditWeight: 3,
+        difficultyScore: 5,
+        deadline: DateTime(2026, 9, 20),
+        studyDurationHours: 1.0,
+      ));
+      await viewModel.addTask(Task(
+        id: 't-2',
+        taskName: 'Operating Systems',
+        creditWeight: 4,
+        difficultyScore: 8,
+        deadline: DateTime(2026, 9, 22),
+        studyDurationHours: 2.0,
+      ));
+
+      await tester.pumpWidget(buildTestWidget(viewModel));
+      await tester.pumpAndSettle();
+
+      expect(find.text('Data Structures'), findsOneWidget);
+      expect(find.text('Operating Systems'), findsOneWidget);
+
+      // Enter search query
+      await tester.enterText(find.byKey(const Key('task_search_field')), 'Oper');
+      await tester.pumpAndSettle();
+
+      expect(find.text('Data Structures'), findsNothing);
+      expect(find.text('Operating Systems'), findsOneWidget);
+
+      // Clear search query
+      await tester.enterText(find.byKey(const Key('task_search_field')), '');
+      await tester.pumpAndSettle();
+
+      expect(find.text('Data Structures'), findsOneWidget);
+      expect(find.text('Operating Systems'), findsOneWidget);
+    });
+
+    testWidgets('sort chips reorder tasks according to selected criterion',
+        (WidgetTester tester) async {
+      await viewModel.addTask(Task(
+        id: 't-low',
+        taskName: 'A Low Credit Task',
+        creditWeight: 1,
+        difficultyScore: 9,
+        deadline: DateTime(2026, 9, 10),
+        studyDurationHours: 1.0,
+      ));
+      await viewModel.addTask(Task(
+        id: 't-high',
+        taskName: 'B High Credit Task',
+        creditWeight: 6,
+        difficultyScore: 2,
+        deadline: DateTime(2026, 9, 30),
+        studyDurationHours: 1.0,
+      ));
+
+      await tester.pumpWidget(buildTestWidget(viewModel));
+      await tester.pumpAndSettle();
+
+      // Tap "Credits" sort chip
+      await tester.tap(find.text('Credits'));
+      await tester.pumpAndSettle();
+
+      final cards = tester.widgetList<TaskCard>(find.byType(TaskCard)).toList();
+      expect(cards.first.task.id, 't-high');
+
+      // Tap "Difficulty" sort chip
+      await tester.tap(find.text('Difficulty'));
+      await tester.pumpAndSettle();
+
+      final cardsDiff = tester.widgetList<TaskCard>(find.byType(TaskCard)).toList();
+      expect(cardsDiff.first.task.id, 't-low');
+    });
   });
 }

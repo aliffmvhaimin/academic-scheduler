@@ -15,14 +15,38 @@ def evaluate_chromosome(
     w_urgency: float = 0.45,
     w_credit: float = 0.30,
     w_difficulty: float = 0.25,
-    hard_penalty_weight: float = 50.0
+    hard_penalty_weight: float = 50.0,
+    task_map: Optional[Dict[str, Task]] = None,
+    task_priorities: Optional[Dict[str, float]] = None,
+    block_time_factors: Optional[List[float]] = None
 ) -> Tuple[float]:
     """
     Evaluates fitness for a chromosome. Higher is better.
     Calculates soft objectives (urgency, credit weight, difficulty, spacing)
     and applies penalties for any unresolved hard constraint violations.
+    Optimized with precomputed task priorities and block discount factors.
     """
-    task_map: Dict[str, Task] = {t.id: t for t in tasks}
+    if task_map is None:
+        task_map = {t.id: t for t in tasks}
+
+    if task_priorities is None:
+        task_priorities = {
+            t.id: calculate_task_priority(
+                t,
+                reference_time,
+                w_urgency=w_urgency,
+                w_credit=w_credit,
+                w_difficulty=w_difficulty
+            )
+            for t in tasks
+        }
+
+    if block_time_factors is None:
+        block_time_factors = [
+            1.0 / (1.0 + 0.005 * max(0.0, (b.start - reference_time).total_seconds() / 3600.0))
+            for b in time_blocks
+        ]
+
     task_assigned_counts: Dict[str, int] = {t.id: 0 for t in tasks}
 
     soft_score = 0.0
@@ -48,20 +72,8 @@ def evaluate_chromosome(
             penalty_score += hard_penalty_weight * 2.0
             continue
 
-        # Soft objective: Priority contribution
-        # Earlier slots get higher reward for high-priority tasks
-        priority = calculate_task_priority(
-            task,
-            reference_time,
-            w_urgency=w_urgency,
-            w_credit=w_credit,
-            w_difficulty=w_difficulty
-        )
-
-        hours_from_ref = max(0.0, (block.start - reference_time).total_seconds() / 3600.0)
-        # Urgency discount: prioritize studying earlier
-        time_factor = 1.0 / (1.0 + 0.005 * hours_from_ref)
-        soft_score += priority * time_factor
+        # Soft objective: Priority contribution with precomputed time factor
+        soft_score += task_priorities[task.id] * block_time_factors[i]
 
     # Check Hard Constraint C4: Duration satisfaction
     for task in tasks:

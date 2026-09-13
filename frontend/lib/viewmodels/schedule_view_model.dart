@@ -65,6 +65,8 @@ class ScheduleViewModel extends ChangeNotifier {
   String? _errorMessage;
   bool _isInfeasible = false;
   Map<String, dynamic>? _diagnostics;
+  List<ScheduleBlock> _missedBlocks = [];
+  List<String> _completedTaskIds = [];
 
   ScheduleViewModel({
     LocalStorageRepository? repository,
@@ -81,6 +83,8 @@ class ScheduleViewModel extends ChangeNotifier {
   String? get errorMessage => _errorMessage;
   bool get isInfeasible => _isInfeasible;
   Map<String, dynamic>? get diagnostics => _diagnostics;
+  List<ScheduleBlock> get missedBlocks => List.unmodifiable(_missedBlocks);
+  List<String> get completedTaskIds => List.unmodifiable(_completedTaskIds);
 
   int get totalScheduledBlocks => _blocks.length;
   double get totalScheduledHours => _blocks.length * 0.25;
@@ -215,6 +219,9 @@ class ScheduleViewModel extends ChangeNotifier {
       _sortBlocks(loadedBlocks);
       _blocks = loadedBlocks;
 
+      _missedBlocks = await repository.loadMissedBlocks();
+      _completedTaskIds = await repository.loadCompletedTaskIds();
+
       _isLoading = false;
       notifyListeners();
     } catch (e) {
@@ -324,13 +331,17 @@ class ScheduleViewModel extends ChangeNotifier {
 
       _taskMap = {for (final t in tasks) t.id: t};
 
+      final effectiveMissed = missedBlocks ?? await repository.loadMissedBlocks();
+      _missedBlocks = effectiveMissed;
+
       final effectiveCompletedIds = completedTaskIds ??
           await repository.loadCompletedTaskIds();
+      _completedTaskIds = effectiveCompletedIds;
 
       final result = await apiClient.recalculateSchedule(
         tasks: tasks,
         freeSlots: freeSlots,
-        missedBlocks: missedBlocks,
+        missedBlocks: effectiveMissed,
         completedTaskIds: effectiveCompletedIds,
       );
 
@@ -349,6 +360,43 @@ class ScheduleViewModel extends ChangeNotifier {
       notifyListeners();
       return false;
     }
+  }
+
+  /// Mark an entire session's blocks as missed, update local storage, and dynamically recalculate.
+  Future<bool> markSessionMissed(ContiguousStudySession session) async {
+    final current = await repository.loadMissedBlocks();
+    final updated = List<ScheduleBlock>.from(current)..addAll(session.blocks);
+    await repository.saveMissedBlocks(updated);
+    _missedBlocks = updated;
+    return recalculateSchedule(missedBlocks: updated);
+  }
+
+  /// Mark a single block as missed, update local storage, and dynamically recalculate.
+  Future<bool> markBlockMissed(ScheduleBlock block) async {
+    final current = await repository.loadMissedBlocks();
+    final updated = List<ScheduleBlock>.from(current)..add(block);
+    await repository.saveMissedBlocks(updated);
+    _missedBlocks = updated;
+    return recalculateSchedule(missedBlocks: updated);
+  }
+
+  /// Mark a task as completed, update local storage, and dynamically recalculate.
+  Future<bool> markTaskCompleted(String taskId) async {
+    final current = await repository.loadCompletedTaskIds();
+    if (!current.contains(taskId)) {
+      final updated = List<String>.from(current)..add(taskId);
+      await repository.saveCompletedTaskIds(updated);
+      _completedTaskIds = updated;
+      return recalculateSchedule(completedTaskIds: updated);
+    }
+    return recalculateSchedule();
+  }
+
+  /// Clear recorded missed blocks history and reset.
+  Future<void> clearMissedBlocks() async {
+    await repository.saveMissedBlocks([]);
+    _missedBlocks = [];
+    notifyListeners();
   }
 
   /// Clear current schedule.

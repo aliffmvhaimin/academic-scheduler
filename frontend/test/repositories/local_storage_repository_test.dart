@@ -142,6 +142,30 @@ void main() {
     });
   });
 
+  group('LocalStorageRepository - Missed Blocks', () {
+    test('saveMissedBlocks and loadMissedBlocks', () async {
+      final blocks = [
+        ScheduleBlock(
+          taskId: 'task-1',
+          start: DateTime(2026, 8, 25, 9, 0),
+          end: DateTime(2026, 8, 25, 9, 15),
+        ),
+      ];
+
+      await repository.saveMissedBlocks(blocks);
+      final loaded = await repository.loadMissedBlocks();
+
+      expect(loaded.length, 1);
+      expect(loaded[0].taskId, 'task-1');
+      expect(loaded[0].start, DateTime(2026, 8, 25, 9, 0));
+    });
+
+    test('loadMissedBlocks returns empty list when none stored', () async {
+      final loaded = await repository.loadMissedBlocks();
+      expect(loaded, isEmpty);
+    });
+  });
+
   group('LocalStorageRepository - clearAll', () {
     test('clears all keys', () async {
       await repository.saveTasks([
@@ -158,6 +182,13 @@ void main() {
         const FreeSlot(date: '2026-08-25', start: '09:00', end: '10:00'),
       ]);
       await repository.saveCompletedTaskIds(['t1']);
+      await repository.saveMissedBlocks([
+        ScheduleBlock(
+          taskId: 't1',
+          start: DateTime(2026, 9, 1, 9, 0),
+          end: DateTime(2026, 9, 1, 9, 15),
+        )
+      ]);
 
       await repository.clearAll();
 
@@ -165,6 +196,7 @@ void main() {
       expect(await repository.loadFreeSlots(), isEmpty);
       expect(await repository.loadScheduleBlocks(), isEmpty);
       expect(await repository.loadCompletedTaskIds(), isEmpty);
+      expect(await repository.loadMissedBlocks(), isEmpty);
     });
   });
 }

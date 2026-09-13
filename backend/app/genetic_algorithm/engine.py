@@ -1,4 +1,5 @@
 """Genetic Algorithm Engine for Academic Task Scheduling."""
+import heapq
 import random
 import time
 from datetime import datetime
@@ -7,6 +8,7 @@ from app.models.task import Task
 from app.models.schedule import ScheduleBlock, ScheduleResult
 from app.core.time_blocks import TimeBlock, generate_time_blocks_from_slots
 from app.core.constraints import check_preliminary_feasibility, validate_schedule_constraints
+from app.core.priority import calculate_task_priority
 from app.genetic_algorithm.chromosome import Chromosome, EMPTY_GENE
 from app.genetic_algorithm.population import initialize_population
 from app.genetic_algorithm.fitness import evaluate_chromosome
@@ -55,6 +57,17 @@ class GeneticAlgorithmEngine:
         if self.random_seed is not None:
             random.seed(self.random_seed)
 
+        # Precompute evaluation lookups to optimize fitness evaluation loop
+        task_map = {t.id: t for t in tasks}
+        task_priorities = {
+            t.id: calculate_task_priority(t, reference_time)
+            for t in tasks
+        }
+        block_time_factors = [
+            1.0 / (1.0 + 0.005 * max(0.0, (b.start - reference_time).total_seconds() / 3600.0))
+            for b in time_blocks
+        ]
+
         # 1. Initialize population
         population = initialize_population(
             pop_size=self.pop_size,
@@ -65,7 +78,12 @@ class GeneticAlgorithmEngine:
 
         # 2. Initial evaluation
         for ind in population:
-            ind.fitness_values = evaluate_chromosome(ind, tasks, time_blocks, reference_time)
+            ind.fitness_values = evaluate_chromosome(
+                ind, tasks, time_blocks, reference_time,
+                task_map=task_map,
+                task_priorities=task_priorities,
+                block_time_factors=block_time_factors
+            )
 
         best_ind = max(population, key=lambda ind: ind.fitness_values[0]).clone()
         best_fitness = best_ind.fitness_values[0]
@@ -78,11 +96,11 @@ class GeneticAlgorithmEngine:
             gen_count = gen
             new_population: List[Chromosome] = []
 
-            # Elitism: preserve top 2 individuals
-            sorted_pop = sorted(population, key=lambda ind: ind.fitness_values[0], reverse=True)
-            new_population.append(sorted_pop[0].clone())
-            if len(sorted_pop) > 1:
-                new_population.append(sorted_pop[1].clone())
+            # Elitism: preserve top 2 individuals using O(N) selection
+            top_elites = heapq.nlargest(2, population, key=lambda ind: ind.fitness_values[0])
+            new_population.append(top_elites[0].clone())
+            if len(top_elites) > 1:
+                new_population.append(top_elites[1].clone())
 
             # Produce offspring
             while len(new_population) < self.pop_size:
@@ -97,8 +115,18 @@ class GeneticAlgorithmEngine:
                 c1 = repair_chromosome(c1, tasks, time_blocks)
                 c2 = repair_chromosome(c2, tasks, time_blocks)
 
-                c1.fitness_values = evaluate_chromosome(c1, tasks, time_blocks, reference_time)
-                c2.fitness_values = evaluate_chromosome(c2, tasks, time_blocks, reference_time)
+                c1.fitness_values = evaluate_chromosome(
+                    c1, tasks, time_blocks, reference_time,
+                    task_map=task_map,
+                    task_priorities=task_priorities,
+                    block_time_factors=block_time_factors
+                )
+                c2.fitness_values = evaluate_chromosome(
+                    c2, tasks, time_blocks, reference_time,
+                    task_map=task_map,
+                    task_priorities=task_priorities,
+                    block_time_factors=block_time_factors
+                )
 
                 new_population.append(c1)
                 if len(new_population) < self.pop_size:

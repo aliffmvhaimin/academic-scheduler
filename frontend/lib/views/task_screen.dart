@@ -25,8 +25,35 @@ class TaskScreen extends StatefulWidget {
   State<TaskScreen> createState() => _TaskScreenState();
 }
 
+enum TaskSortOption { deadline, credit, difficulty, name }
+
 class _TaskScreenState extends State<TaskScreen> {
   late final TaskViewModel _viewModel;
+  String _searchQuery = '';
+  TaskSortOption _sortOption = TaskSortOption.deadline;
+
+  List<Task> get _filteredTasks {
+    var list = _viewModel.tasks.where((t) {
+      if (_searchQuery.isEmpty) return true;
+      return t.taskName.toLowerCase().contains(_searchQuery.toLowerCase());
+    }).toList();
+
+    switch (_sortOption) {
+      case TaskSortOption.deadline:
+        list.sort((a, b) => a.deadline.compareTo(b.deadline));
+        break;
+      case TaskSortOption.credit:
+        list.sort((a, b) => b.creditWeight.compareTo(a.creditWeight));
+        break;
+      case TaskSortOption.difficulty:
+        list.sort((a, b) => b.difficultyScore.compareTo(a.difficultyScore));
+        break;
+      case TaskSortOption.name:
+        list.sort((a, b) => a.taskName.compareTo(b.taskName));
+        break;
+    }
+    return list;
+  }
 
   @override
   void initState() {
@@ -126,6 +153,34 @@ class _TaskScreenState extends State<TaskScreen> {
     }
   }
 
+  Widget _buildSortChip(String label, TaskSortOption option) {
+    final isSelected = _sortOption == option;
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _sortOption = option;
+        });
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+        decoration: BoxDecoration(
+          color: isSelected ? AppColors.black : AppColors.surface,
+          border: AppTheme.thickBorder,
+          borderRadius: BorderRadius.circular(AppTheme.borderRadius),
+          boxShadow: isSelected ? AppTheme.hardShadow : null,
+        ),
+        child: Text(
+          label,
+          style: TextStyle(
+            fontSize: 11,
+            fontWeight: FontWeight.w800,
+            color: isSelected ? Colors.white : AppColors.black,
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -200,8 +255,52 @@ class _TaskScreenState extends State<TaskScreen> {
                   ),
                 ),
 
+                // ── Search & Filter Bar (Iteration 2 Refinement) ──
+                Container(
+                  margin: const EdgeInsets.only(bottom: 12),
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: AppColors.surface,
+                    border: AppTheme.thickBorder,
+                    borderRadius: BorderRadius.circular(AppTheme.borderRadius),
+                    boxShadow: AppTheme.hardShadow,
+                  ),
+                  child: TextField(
+                    key: const Key('task_search_field'),
+                    decoration: const InputDecoration(
+                      hintText: 'Search tasks by name...',
+                      border: InputBorder.none,
+                      icon: Icon(Icons.search, color: AppColors.black),
+                      isDense: true,
+                    ),
+                    style: const TextStyle(fontWeight: FontWeight.w700, fontSize: 13),
+                    onChanged: (val) {
+                      setState(() {
+                        _searchQuery = val.trim();
+                      });
+                    },
+                  ),
+                ),
+
+                // ── Sort Filter Chips ──
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      _buildSortChip('Deadline', TaskSortOption.deadline),
+                      const SizedBox(width: 8),
+                      _buildSortChip('Credits', TaskSortOption.credit),
+                      const SizedBox(width: 8),
+                      _buildSortChip('Difficulty', TaskSortOption.difficulty),
+                      const SizedBox(width: 8),
+                      _buildSortChip('Name', TaskSortOption.name),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 12),
+
                 // ── Task List ──
-                ..._viewModel.tasks.map(
+                ..._filteredTasks.map(
                   (task) => TaskCard(
                     key: Key('task_card_${task.id}'),
                     task: task,

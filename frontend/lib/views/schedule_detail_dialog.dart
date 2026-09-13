@@ -14,12 +14,14 @@ class ScheduleDetailDialog extends StatelessWidget {
   final ContiguousStudySession session;
   final Task? task;
   final PriorityContribution? priority;
+  final ScheduleViewModel? viewModel;
 
   const ScheduleDetailDialog({
     super.key,
     required this.session,
     this.task,
     this.priority,
+    this.viewModel,
   });
 
   /// Static helper to display the detail dialog.
@@ -28,6 +30,7 @@ class ScheduleDetailDialog extends StatelessWidget {
     required ContiguousStudySession session,
     Task? task,
     PriorityContribution? priority,
+    ScheduleViewModel? viewModel,
   }) {
     return showDialog<void>(
       context: context,
@@ -35,6 +38,7 @@ class ScheduleDetailDialog extends StatelessWidget {
         session: session,
         task: task,
         priority: priority,
+        viewModel: viewModel,
       ),
     );
   }
@@ -272,6 +276,74 @@ class ScheduleDetailDialog extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
+
+            if (viewModel != null) ...[
+              // ── Dynamic Recalculation Actions (Iteration 2) ──
+              Row(
+                children: [
+                  Expanded(
+                    child: OutlinedButton.icon(
+                      key: const Key('mark_missed_button'),
+                      icon: const Icon(Icons.event_busy, size: 18),
+                      label: const Text('MARK MISSED'),
+                      style: OutlinedButton.styleFrom(
+                        foregroundColor: AppColors.error,
+                        side: const BorderSide(color: AppColors.error, width: 2),
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                      ),
+                      onPressed: () async {
+                        Navigator.of(context).pop();
+                        final success =
+                            await viewModel!.markSessionMissed(session);
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(success
+                                  ? 'Study session marked as missed. Schedule recalculated!'
+                                  : 'Could not reschedule missed session.'),
+                              backgroundColor:
+                                  success ? AppColors.black : AppColors.error,
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  if (hasTask)
+                    Expanded(
+                      child: OutlinedButton.icon(
+                        key: const Key('mark_completed_button'),
+                        icon: const Icon(Icons.check_circle_outline, size: 18),
+                        label: const Text('COMPLETED'),
+                        style: OutlinedButton.styleFrom(
+                          foregroundColor: AppColors.black,
+                          backgroundColor: AppColors.secondary,
+                          side: const BorderSide(color: AppColors.border, width: 2),
+                          padding: const EdgeInsets.symmetric(vertical: 12),
+                        ),
+                        onPressed: () async {
+                          Navigator.of(context).pop();
+                          final success =
+                              await viewModel!.markTaskCompleted(task!.id);
+                          if (context.mounted) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(success
+                                    ? 'Task "${task!.taskName}" marked as completed! Schedule updated.'
+                                    : 'Schedule recalculation failed.'),
+                                backgroundColor:
+                                    success ? AppColors.black : AppColors.error,
+                              ),
+                            );
+                          }
+                        },
+                      ),
+                    ),
+                ],
+              ),
+              const SizedBox(height: 12),
+            ],
 
             // ── Close Button ──
             SizedBox(

@@ -1,0 +1,958 @@
+{
+  "scenario": "Scenario B - Medium Complexity",
+  "total_configurations": 27,
+  "best_configuration": {
+    "config_id": "pop150_cx0.9_mut0.01",
+    "pop_size": 150,
+    "crossover_prob": 0.9,
+    "mutation_prob": 0.01,
+    "feasibility_rate_pct": 100.0,
+    "mean_fitness": 37.088,
+    "std_fitness": 0.0002,
+    "mean_runtime_ms": 1038.3,
+    "mean_generations": 64.7,
+    "runs": [
+      {
+        "seed": 42,
+        "feasible": true,
+        "fitness_score": 37.0881,
+        "generation_count": 53,
+        "execution_time_ms": 841
+      },
+      {
+        "seed": 101,
+        "feasible": true,
+        "fitness_score": 37.0881,
+        "generation_count": 81,
+        "execution_time_ms": 1271
+      },
+      {
+        "seed": 2024,
+        "feasible": true,
+        "fitness_score": 37.0878,
+        "generation_count": 60,
+        "execution_time_ms": 1003
+      }
+    ]
+  },
+  "all_configurations": [
+    {
+      "config_id": "pop150_cx0.9_mut0.01",
+      "pop_size": 150,
+      "crossover_prob": 0.9,
+      "mutation_prob": 0.01,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.088,
+      "std_fitness": 0.0002,
+      "mean_runtime_ms": 1038.3,
+      "mean_generations": 64.7,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0881,
+          "generation_count": 53,
+          "execution_time_ms": 841
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0881,
+          "generation_count": 81,
+          "execution_time_ms": 1271
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0878,
+          "generation_count": 60,
+          "execution_time_ms": 1003
+        }
+      ]
+    },
+    {
+      "config_id": "pop150_cx0.7_mut0.01",
+      "pop_size": 150,
+      "crossover_prob": 0.7,
+      "mutation_prob": 0.01,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.088,
+      "std_fitness": 0.0001,
+      "mean_runtime_ms": 1184,
+      "mean_generations": 75.7,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0879,
+          "generation_count": 59,
+          "execution_time_ms": 904
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0881,
+          "generation_count": 72,
+          "execution_time_ms": 1159
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0881,
+          "generation_count": 96,
+          "execution_time_ms": 1489
+        }
+      ]
+    },
+    {
+      "config_id": "pop150_cx0.8_mut0.01",
+      "pop_size": 150,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.01,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.088,
+      "std_fitness": 0.0002,
+      "mean_runtime_ms": 1316,
+      "mean_generations": 82.3,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0881,
+          "generation_count": 58,
+          "execution_time_ms": 940
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0881,
+          "generation_count": 89,
+          "execution_time_ms": 1404
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0877,
+          "generation_count": 100,
+          "execution_time_ms": 1604
+        }
+      ]
+    },
+    {
+      "config_id": "pop100_cx0.7_mut0.01",
+      "pop_size": 100,
+      "crossover_prob": 0.7,
+      "mutation_prob": 0.01,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0877,
+      "std_fitness": 0.0002,
+      "mean_runtime_ms": 641.7,
+      "mean_generations": 64.3,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0878,
+          "generation_count": 44,
+          "execution_time_ms": 433
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0878,
+          "generation_count": 58,
+          "execution_time_ms": 586
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0875,
+          "generation_count": 91,
+          "execution_time_ms": 906
+        }
+      ]
+    },
+    {
+      "config_id": "pop100_cx0.9_mut0.01",
+      "pop_size": 100,
+      "crossover_prob": 0.9,
+      "mutation_prob": 0.01,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0875,
+      "std_fitness": 0.0002,
+      "mean_runtime_ms": 754.3,
+      "mean_generations": 71.7,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0877,
+          "generation_count": 75,
+          "execution_time_ms": 797
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0876,
+          "generation_count": 76,
+          "execution_time_ms": 792
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0873,
+          "generation_count": 64,
+          "execution_time_ms": 674
+        }
+      ]
+    },
+    {
+      "config_id": "pop50_cx0.9_mut0.01",
+      "pop_size": 50,
+      "crossover_prob": 0.9,
+      "mutation_prob": 0.01,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0867,
+      "std_fitness": 0.0012,
+      "mean_runtime_ms": 367,
+      "mean_generations": 76.7,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0871,
+          "generation_count": 100,
+          "execution_time_ms": 470
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0877,
+          "generation_count": 30,
+          "execution_time_ms": 159
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0854,
+          "generation_count": 100,
+          "execution_time_ms": 472
+        }
+      ]
+    },
+    {
+      "config_id": "pop100_cx0.8_mut0.01",
+      "pop_size": 100,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.01,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0867,
+      "std_fitness": 0.0022,
+      "mean_runtime_ms": 735.7,
+      "mean_generations": 71.7,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0878,
+          "generation_count": 74,
+          "execution_time_ms": 749
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0881,
+          "generation_count": 92,
+          "execution_time_ms": 923
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0842,
+          "generation_count": 49,
+          "execution_time_ms": 535
+        }
+      ]
+    },
+    {
+      "config_id": "pop50_cx0.8_mut0.01",
+      "pop_size": 50,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.01,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0866,
+      "std_fitness": 0.0016,
+      "mean_runtime_ms": 415.7,
+      "mean_generations": 88,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0849,
+          "generation_count": 100,
+          "execution_time_ms": 481
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0881,
+          "generation_count": 64,
+          "execution_time_ms": 299
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0869,
+          "generation_count": 100,
+          "execution_time_ms": 467
+        }
+      ]
+    },
+    {
+      "config_id": "pop50_cx0.7_mut0.01",
+      "pop_size": 50,
+      "crossover_prob": 0.7,
+      "mutation_prob": 0.01,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0847,
+      "std_fitness": 0.003,
+      "mean_runtime_ms": 295.3,
+      "mean_generations": 63,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0848,
+          "generation_count": 100,
+          "execution_time_ms": 463
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0877,
+          "generation_count": 31,
+          "execution_time_ms": 148
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0817,
+          "generation_count": 58,
+          "execution_time_ms": 275
+        }
+      ]
+    },
+    {
+      "config_id": "pop150_cx0.7_mut0.02",
+      "pop_size": 150,
+      "crossover_prob": 0.7,
+      "mutation_prob": 0.02,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.084,
+      "std_fitness": 0.0018,
+      "mean_runtime_ms": 1126.7,
+      "mean_generations": 67,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0861,
+          "generation_count": 89,
+          "execution_time_ms": 1545
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0826,
+          "generation_count": 43,
+          "execution_time_ms": 704
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0834,
+          "generation_count": 69,
+          "execution_time_ms": 1131
+        }
+      ]
+    },
+    {
+      "config_id": "pop100_cx0.9_mut0.02",
+      "pop_size": 100,
+      "crossover_prob": 0.9,
+      "mutation_prob": 0.02,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0837,
+      "std_fitness": 0.0027,
+      "mean_runtime_ms": 823,
+      "mean_generations": 74,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0867,
+          "generation_count": 83,
+          "execution_time_ms": 936
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0825,
+          "generation_count": 82,
+          "execution_time_ms": 888
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0818,
+          "generation_count": 57,
+          "execution_time_ms": 645
+        }
+      ]
+    },
+    {
+      "config_id": "pop100_cx0.7_mut0.02",
+      "pop_size": 100,
+      "crossover_prob": 0.7,
+      "mutation_prob": 0.02,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0826,
+      "std_fitness": 0.0039,
+      "mean_runtime_ms": 873,
+      "mean_generations": 83.7,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0843,
+          "generation_count": 100,
+          "execution_time_ms": 1038
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0854,
+          "generation_count": 96,
+          "execution_time_ms": 1003
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0782,
+          "generation_count": 55,
+          "execution_time_ms": 578
+        }
+      ]
+    },
+    {
+      "config_id": "pop150_cx0.9_mut0.02",
+      "pop_size": 150,
+      "crossover_prob": 0.9,
+      "mutation_prob": 0.02,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0825,
+      "std_fitness": 0.003,
+      "mean_runtime_ms": 1145,
+      "mean_generations": 68.7,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0843,
+          "generation_count": 100,
+          "execution_time_ms": 1677
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0842,
+          "generation_count": 33,
+          "execution_time_ms": 549
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.079,
+          "generation_count": 73,
+          "execution_time_ms": 1209
+        }
+      ]
+    },
+    {
+      "config_id": "pop100_cx0.8_mut0.02",
+      "pop_size": 100,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.02,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0815,
+      "std_fitness": 0.0038,
+      "mean_runtime_ms": 741.3,
+      "mean_generations": 69.3,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0858,
+          "generation_count": 100,
+          "execution_time_ms": 1076
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0803,
+          "generation_count": 70,
+          "execution_time_ms": 746
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0784,
+          "generation_count": 38,
+          "execution_time_ms": 402
+        }
+      ]
+    },
+    {
+      "config_id": "pop150_cx0.8_mut0.02",
+      "pop_size": 150,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.02,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.08,
+      "std_fitness": 0.0047,
+      "mean_runtime_ms": 512,
+      "mean_generations": 29.7,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0846,
+          "generation_count": 37,
+          "execution_time_ms": 627
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0803,
+          "generation_count": 23,
+          "execution_time_ms": 393
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0752,
+          "generation_count": 29,
+          "execution_time_ms": 516
+        }
+      ]
+    },
+    {
+      "config_id": "pop150_cx0.7_mut0.05",
+      "pop_size": 150,
+      "crossover_prob": 0.7,
+      "mutation_prob": 0.05,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0791,
+      "std_fitness": 0.003,
+      "mean_runtime_ms": 879,
+      "mean_generations": 49,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0821,
+          "generation_count": 57,
+          "execution_time_ms": 1024
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.079,
+          "generation_count": 20,
+          "execution_time_ms": 399
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0761,
+          "generation_count": 70,
+          "execution_time_ms": 1214
+        }
+      ]
+    },
+    {
+      "config_id": "pop150_cx0.8_mut0.05",
+      "pop_size": 150,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.05,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0774,
+      "std_fitness": 0.0028,
+      "mean_runtime_ms": 399,
+      "mean_generations": 21.3,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.079,
+          "generation_count": 20,
+          "execution_time_ms": 363
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.079,
+          "generation_count": 20,
+          "execution_time_ms": 391
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0741,
+          "generation_count": 24,
+          "execution_time_ms": 443
+        }
+      ]
+    },
+    {
+      "config_id": "pop150_cx0.9_mut0.05",
+      "pop_size": 150,
+      "crossover_prob": 0.9,
+      "mutation_prob": 0.05,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0764,
+      "std_fitness": 0.0045,
+      "mean_runtime_ms": 370,
+      "mean_generations": 20,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.079,
+          "generation_count": 20,
+          "execution_time_ms": 371
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.079,
+          "generation_count": 20,
+          "execution_time_ms": 369
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0712,
+          "generation_count": 20,
+          "execution_time_ms": 370
+        }
+      ]
+    },
+    {
+      "config_id": "pop50_cx0.8_mut0.02",
+      "pop_size": 50,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.02,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0758,
+      "std_fitness": 0.0038,
+      "mean_runtime_ms": 403.3,
+      "mean_generations": 80.7,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0716,
+          "generation_count": 100,
+          "execution_time_ms": 497
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0789,
+          "generation_count": 42,
+          "execution_time_ms": 223
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0769,
+          "generation_count": 100,
+          "execution_time_ms": 490
+        }
+      ]
+    },
+    {
+      "config_id": "pop50_cx0.9_mut0.02",
+      "pop_size": 50,
+      "crossover_prob": 0.9,
+      "mutation_prob": 0.02,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0756,
+      "std_fitness": 0.0103,
+      "mean_runtime_ms": 347.7,
+      "mean_generations": 69,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0644,
+          "generation_count": 50,
+          "execution_time_ms": 251
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0846,
+          "generation_count": 85,
+          "execution_time_ms": 428
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0777,
+          "generation_count": 72,
+          "execution_time_ms": 364
+        }
+      ]
+    },
+    {
+      "config_id": "pop100_cx0.8_mut0.05",
+      "pop_size": 100,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.05,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0721,
+      "std_fitness": 0.0015,
+      "mean_runtime_ms": 241.3,
+      "mean_generations": 20,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0738,
+          "generation_count": 20,
+          "execution_time_ms": 234
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0712,
+          "generation_count": 20,
+          "execution_time_ms": 253
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0712,
+          "generation_count": 20,
+          "execution_time_ms": 237
+        }
+      ]
+    },
+    {
+      "config_id": "pop100_cx0.9_mut0.05",
+      "pop_size": 100,
+      "crossover_prob": 0.9,
+      "mutation_prob": 0.05,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0721,
+      "std_fitness": 0.0015,
+      "mean_runtime_ms": 242.3,
+      "mean_generations": 20,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0738,
+          "generation_count": 20,
+          "execution_time_ms": 246
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0712,
+          "generation_count": 20,
+          "execution_time_ms": 242
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0712,
+          "generation_count": 20,
+          "execution_time_ms": 239
+        }
+      ]
+    },
+    {
+      "config_id": "pop100_cx0.7_mut0.05",
+      "pop_size": 100,
+      "crossover_prob": 0.7,
+      "mutation_prob": 0.05,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0721,
+      "std_fitness": 0.0015,
+      "mean_runtime_ms": 263.7,
+      "mean_generations": 20,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0738,
+          "generation_count": 20,
+          "execution_time_ms": 234
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0712,
+          "generation_count": 20,
+          "execution_time_ms": 272
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0712,
+          "generation_count": 20,
+          "execution_time_ms": 285
+        }
+      ]
+    },
+    {
+      "config_id": "pop50_cx0.7_mut0.02",
+      "pop_size": 50,
+      "crossover_prob": 0.7,
+      "mutation_prob": 0.02,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0718,
+      "std_fitness": 0.0065,
+      "mean_runtime_ms": 364.3,
+      "mean_generations": 74.3,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0643,
+          "generation_count": 100,
+          "execution_time_ms": 489
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0757,
+          "generation_count": 54,
+          "execution_time_ms": 265
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0755,
+          "generation_count": 69,
+          "execution_time_ms": 339
+        }
+      ]
+    },
+    {
+      "config_id": "pop50_cx0.9_mut0.05",
+      "pop_size": 50,
+      "crossover_prob": 0.9,
+      "mutation_prob": 0.05,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0545,
+      "std_fitness": 0.0174,
+      "mean_runtime_ms": 174.7,
+      "mean_generations": 31.3,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0365,
+          "generation_count": 54,
+          "execution_time_ms": 293
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0712,
+          "generation_count": 20,
+          "execution_time_ms": 113
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0559,
+          "generation_count": 20,
+          "execution_time_ms": 118
+        }
+      ]
+    },
+    {
+      "config_id": "pop50_cx0.7_mut0.05",
+      "pop_size": 50,
+      "crossover_prob": 0.7,
+      "mutation_prob": 0.05,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.0539,
+      "std_fitness": 0.022,
+      "mean_runtime_ms": 139.3,
+      "mean_generations": 25.7,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0291,
+          "generation_count": 20,
+          "execution_time_ms": 110
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0712,
+          "generation_count": 20,
+          "execution_time_ms": 113
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0615,
+          "generation_count": 37,
+          "execution_time_ms": 195
+        }
+      ]
+    },
+    {
+      "config_id": "pop50_cx0.8_mut0.05",
+      "pop_size": 50,
+      "crossover_prob": 0.8,
+      "mutation_prob": 0.05,
+      "feasibility_rate_pct": 100.0,
+      "mean_fitness": 37.053,
+      "std_fitness": 0.0225,
+      "mean_runtime_ms": 137,
+      "mean_generations": 25,
+      "runs": [
+        {
+          "seed": 42,
+          "feasible": true,
+          "fitness_score": 37.0291,
+          "generation_count": 20,
+          "execution_time_ms": 111
+        },
+        {
+          "seed": 101,
+          "feasible": true,
+          "fitness_score": 37.0739,
+          "generation_count": 35,
+          "execution_time_ms": 188
+        },
+        {
+          "seed": 2024,
+          "feasible": true,
+          "fitness_score": 37.0559,
+          "generation_count": 20,
+          "execution_time_ms": 112
+        }
+      ]
+    }
+  ]
+}
